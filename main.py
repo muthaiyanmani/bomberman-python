@@ -1,5 +1,5 @@
 from board import bp
-from config import global_arr, user_location
+from config import global_arr, user_location,bomb_location
 from player import player
 from villian import villian
 from input import villian_input, brick_input, user_position, key_position
@@ -12,6 +12,10 @@ def display_board():
         print()
     print()
 
+def put_bomb():
+    bomb_location[0] = user_location[0]
+    bomb_location[1] = user_location[1]
+
 bp.make_board()
 user_position()
 key_position()
@@ -21,7 +25,7 @@ display_board()
 
 
 while(1):
-    print("\nW - Move up\nS - Move down\nA - Move left\nD - Move right\nQ - Move diagonally up left\nZ - Move diagonally down left\nE - Move diagonally up right\nC - Move diagonally down right\nX - Exit\n")
+    print("\nW - Move up\nS - Move down\nA - Move left\nD - Move right\nQ - Move diagonally up left\nZ - Move diagonally down left\nE - Move diagonally up right\nC - Move diagonally down right\nX - Bomb\nM - Exit\n")
 
     move = input("Enter your move: ")
     if(move == 'W' or move == 'w'):
@@ -41,8 +45,19 @@ while(1):
     elif(move == 'C' or move == 'c'):
         player.moveDownRight(user_location[0], user_location[1])
     elif(move == 'X' or move == 'x'):
+        print("\n1 Plant\n2 Detonate")
+        bomb = input("Enter your choice: ")
+        if(bomb == '1'):
+            put_bomb()
+        elif(bomb == '2'):
+            pass
+        else:
+            print("Invalid input")
+
+    elif(move == 'M' or move == 'm'):
         print("Exiting...")
         break
     else:
         print("Invalid move")
     display_board()
+
