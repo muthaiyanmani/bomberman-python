@@ -2,7 +2,7 @@ from board import bp
 from config import global_arr, user_location,bomb_location
 from player import player
 from villian import villian
-from input import villian_input, brick_input, user_position, key_position
+from input import villian_input, brick_input, user_position, key_position,bomb_input
 
 
 def display_board():
@@ -43,6 +43,7 @@ user_position()
 key_position()
 villian_input()
 brick_input()
+bomb_input()
 display_board()
 
 

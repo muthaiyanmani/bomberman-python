@@ -1,6 +1,7 @@
 
 from villian import villian
 from bricks import bricks
+from bomb import bomb
 from player import player
 from key import key
 from config import user_location
@@ -43,3 +44,25 @@ def brick_input():
        row = ord(temp[0]) - ord('A')+1
        col = ord(temp[1]) - ord('A')+1       
        bricks.set_pos(row, col)
+
+def bomb_input():
+    range_count = int(input("Enter the number of bombs in range: "))
+    for i in range(range_count):
+       temp = input("Enter Range{v} position: ".format(v=i+1))
+       row = ord(temp[0]) - ord('A')+1
+       col = ord(temp[1]) - ord('A')+1       
+       bomb.set_pos(row, col,1)
+
+    diag_count = int(input("Enter the number of bombs in diagonal: "))
+    for i in range(diag_count):
+       temp = input("Enter Diagonal{v} position: ".format(v=i+1))
+       row = ord(temp[0]) - ord('A')+1
+       col = ord(temp[1]) - ord('A')+1       
+       bomb.set_pos(row, col,2)
+
+    bomb_count = int(input("Enter the number of bombs in count: "))
+    for i in range(bomb_count):
+       temp = input("Enter Bomb{v} position: ".format(v=i+1))
+       row = ord(temp[0]) - ord('A')+1
+       col = ord(temp[1]) - ord('A')+1       
+       bomb.set_pos(row, col,3)
