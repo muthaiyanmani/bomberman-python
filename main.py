@@ -16,6 +16,28 @@ def put_bomb():
     bomb_location[0] = user_location[0]
     bomb_location[1] = user_location[1]
 
+def detonote_bomb():
+    for i in range(bp.row):
+        for j in range(bp.col):
+            if(global_arr[i][j] == 'X '):
+                global_arr[i][j] = '  '
+    if(bomb_location[0] and bomb_location[1]):
+        if(global_arr[bomb_location[0]-1][bomb_location[1]]=='P ' or global_arr[bomb_location[0]+1][bomb_location[1]]=='P ' or global_arr[bomb_location[0]][bomb_location[1]-1]=='P ' or global_arr[bomb_location[0]][bomb_location[1]+1]=='P '):
+            print("Bom blast! You lost the game...")
+            exit(1)
+        if(global_arr[bomb_location[0]-1][bomb_location[1]]!='* '):
+            global_arr[bomb_location[0]-1][bomb_location[1]] = '  '
+        if(global_arr[bomb_location[0]+1][bomb_location[1]]!='* '):
+            global_arr[bomb_location[0]+1][bomb_location[1]] = '  '
+        if(global_arr[bomb_location[0]][bomb_location[1]-1]!='* '):
+            global_arr[bomb_location[0]][bomb_location[1]-1] = '  '
+        if(global_arr[bomb_location[0]][bomb_location[1]+1]!='* '):
+            global_arr[bomb_location[0]][bomb_location[1]+1] = '  '
+        global_arr[bomb_location[0]][bomb_location[1]] = '  '
+        bomb_location[0] = 0
+        bomb_location[1] = 0
+
+
 bp.make_board()
 user_position()
 key_position()
@@ -50,7 +72,7 @@ while(1):
         if(bomb == '1'):
             put_bomb()
         elif(bomb == '2'):
-            pass
+            detonote_bomb()
         else:
             print("Invalid input")
 
