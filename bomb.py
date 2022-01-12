@@ -8,8 +8,5 @@ class Bomb():
             print("Already occupied")
             print("Exiting...")
             exit(1)
-    
-    def get_pos(self,x,y):
-        return global_arr[x,y]
-
+            
 bomb = Bomb()

@@ -4,14 +4,6 @@ from player import player
 from villian import villian
 from input import villian_input, brick_input, user_position, key_position,bomb_input
 
-
-def display_board():
-    for x in range(bp.row):
-        for y in range(bp.col):
-            print(global_arr[x][y], end="")
-        print()
-    print()
-
 def put_bomb():
     bomb_location[0] = user_location[0]
     bomb_location[1] = user_location[1]
@@ -44,7 +36,7 @@ key_position()
 villian_input()
 brick_input()
 bomb_input()
-display_board()
+bp.display_board()
 
 
 while(1):
@@ -82,5 +74,5 @@ while(1):
         break
     else:
         print("Invalid move")
-    display_board()
+    bp.display_board()
 
