@@ -25,13 +25,13 @@ def detonote_bomb():
         if(global_arr[bomb_location[0]-1][bomb_location[1]]=='P ' or global_arr[bomb_location[0]+1][bomb_location[1]]=='P ' or global_arr[bomb_location[0]][bomb_location[1]-1]=='P ' or global_arr[bomb_location[0]][bomb_location[1]+1]=='P '):
             print("Bom blast! You lost the game...")
             exit(1)
-        if(global_arr[bomb_location[0]-1][bomb_location[1]]!='* '):
+        if(global_arr[bomb_location[0]-1][bomb_location[1]]!='* ' and global_arr[bomb_location[0]-1][bomb_location[1]]!='K '):
             global_arr[bomb_location[0]-1][bomb_location[1]] = '  '
-        if(global_arr[bomb_location[0]+1][bomb_location[1]]!='* '):
+        if(global_arr[bomb_location[0]+1][bomb_location[1]]!='* ' and global_arr[bomb_location[0]+1][bomb_location[1]]!='K '):
             global_arr[bomb_location[0]+1][bomb_location[1]] = '  '
-        if(global_arr[bomb_location[0]][bomb_location[1]-1]!='* '):
+        if(global_arr[bomb_location[0]][bomb_location[1]-1]!='* ' and global_arr[bomb_location[0]][bomb_location[1]-1]!='K '):
             global_arr[bomb_location[0]][bomb_location[1]-1] = '  '
-        if(global_arr[bomb_location[0]][bomb_location[1]+1]!='* '):
+        if(global_arr[bomb_location[0]][bomb_location[1]+1]!='* ' and global_arr[bomb_location[0]][bomb_location[1]+1]!='K '):
             global_arr[bomb_location[0]][bomb_location[1]+1] = '  '
         global_arr[bomb_location[0]][bomb_location[1]] = '  '
         bomb_location[0] = 0

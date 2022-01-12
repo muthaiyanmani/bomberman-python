@@ -6,6 +6,8 @@ class Villian:
             global_arr[x][y] = 'V '
         else:
             print("Already occupied")
+            print("Exiting...")
+            exit(1)
     
     def get_pos(self,x,y):
         return global_arr[x,y]
